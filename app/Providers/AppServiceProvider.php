@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace FriendlyPets\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
