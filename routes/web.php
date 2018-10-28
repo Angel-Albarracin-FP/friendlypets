@@ -11,18 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'inicioController@index')->name('inicio');
 
 Route::get('/avisos', function () {
     return view('avisos');
 });
 
 Route::get('/noticias', function () {
-    return view('noticias');
+    return view('inicio.noticias');
+});
+
+Route::get('/perfil', function () {
+    return view('perfil');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/* Route::get('/home', 'HomeController@index')->name('home'); */

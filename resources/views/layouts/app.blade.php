@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fp.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -26,11 +27,9 @@
         <main role="main" class="container">
             <br>
             <br>
-            <br>
-            <h1>Fin layout</h1>
             @yield('content')
         </main>
-      {{-- @include('layouts.footer') --}}
+        @include('layouts.footer')
     </div>
 </body>
 </html>
