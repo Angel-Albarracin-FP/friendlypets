@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAvisosTable extends Migration
+class CreateImagenesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class CreateAvisosTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('imagenes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->string('path');
+            $table->string('name');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateAvisosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('imagenes');
     }
 }

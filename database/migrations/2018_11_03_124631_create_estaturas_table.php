@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateForeignKey extends Migration
+class CreateEstaturasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateForeignKey extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('id_localidad')->references('id')->on('localidades');
+        Schema::create('estaturas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->string('estatura');
         });
     }
 
@@ -25,6 +27,6 @@ class CreateForeignKey extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('estaturas');
     }
 }

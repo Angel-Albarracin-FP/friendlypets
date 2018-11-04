@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->integer('id_localidad')->nullable()->unsigned();
+            $table->integer('id_imagen')->nullable()->unsigned();
             $table->timestamps();
         });
     }

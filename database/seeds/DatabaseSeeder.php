@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
         	PartidosSeeder::class,
         	LocalidadesSeeder::class,
             PreguntasFrecuentesSeeder::class,
+            ImagenesSeeder::class,
+            TiposAnimalSeeder::class,
         ]);
     }
 }

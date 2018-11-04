@@ -9,13 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url('/noticias') }}">Noticias <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
           <a class="nav-link" href="{{ url('/avisos') }}">Avisos</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Disabled</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">

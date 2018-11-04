@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', 'inicioController@index')->name('inicio');
+/*
+| En esta ruta se muestra la pagina inicial,
+| la misma contiene noticias y preguntas frecuentes
+| ademas de una seccion de quienes somos
+*/
+Route::get('/', 'InicioController@index')->name('inicio');
+
+route::get('/imagenes','ImagenController@create')->name('imagenes');
+
+route::post('/imagenes/store','ImagenController@store')->name('imagenes-store');
 
 Route::get('/avisos', function () {
     return view('avisos');
@@ -21,9 +30,13 @@ Route::get('/noticias', function () {
     return view('inicio.noticias');
 });
 
-Route::get('/perfil', function () {
-    return view('perfil');
-});
+
+/*
+| En esta ruta se muestra el perfil del usuario
+| que esta actualmente conectado y tambien
+| todas sus publcaciones para poder editarlas
+*/
+Route::get('/perfil', 'UserController@index')->name('perfil');
 
 Auth::routes();
 

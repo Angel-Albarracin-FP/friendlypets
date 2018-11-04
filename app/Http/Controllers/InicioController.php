@@ -3,6 +3,7 @@
 namespace FriendlyPets\Http\Controllers;
 
 use FriendlyPets\PreguntaFrecuente;
+use FriendlyPets\Imagen;
 use Illuminate\Http\Request;
 
 class InicioController extends Controller
@@ -15,6 +16,7 @@ class InicioController extends Controller
     public function index()
     {
     	$preguntas = PreguntaFrecuente::all();
-        return view('inicio.welcome', compact('preguntas'));
+        $logo = Imagen::find(1);
+        return view('inicio.index', compact('preguntas', 'logo'));
     }
 }
