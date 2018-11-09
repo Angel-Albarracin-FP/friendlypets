@@ -3,9 +3,25 @@
 namespace FriendlyPets\Http\Controllers;
 
 use Illuminate\Http\Request;
+use FriendlyPets\Imagen;
+use FriendlyPets\User;
+use Image;
+use Auth;
+use Debugbar;
+use FriendlyPets\FuncionesComunes;
 
 class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +29,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('perfil.index');
+        $user = User::find(Auth::user()->id);
+        $avatar = Imagen::find($user->id_imagen);
+        return view('perfil.index', compact('user', 'avatar'));
     }
 
     /**
@@ -54,9 +72,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('perfil.edit');
     }
 
     /**
@@ -66,9 +84,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::find(Auth::user()->id);
+        $imagenDB = new Imagen;
+        $imagenName = FuncionesComunes::guardarImagen('/img/avatares/', $request->file('file'));
+        //Tomo la imagen de la DB para tomar su id
+        $imagenDB = Imagen::where('name', $imagenName)->get();
+        // Actualizo al user
+        foreach ($imagenDB as $imgDB) {
+            $user->id_imagen = $imgDB->id;
+        }
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->save();
+
+        return redirect('/perfil');
+
     }
 
     /**
@@ -81,4 +113,5 @@ class UserController extends Controller
     {
         //
     }
+
 }

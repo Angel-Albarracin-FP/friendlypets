@@ -5,6 +5,7 @@ namespace FriendlyPets\Http\Controllers;
 use FriendlyPets\Imagen;
 use Illuminate\Http\Request;
 use Image;
+use Debugbar;
 
 class ImagenController extends Controller
 {
@@ -38,10 +39,10 @@ class ImagenController extends Controller
     {
         // ruta de las imagenes guardadas
         $ruta = public_path().'/img/';
- 
+
         // recogida del form
         $imagenOriginal = $request->file('file');
- 
+
         // crear instancia de imagen
         $imagen = Image::make($imagenOriginal);
  

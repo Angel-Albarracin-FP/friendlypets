@@ -18,18 +18,13 @@
 */
 Route::get('/', 'InicioController@index')->name('inicio');
 
+/*
+| Esta ruta es solo temporal para 
+|testear guardado de imagenes
+*/
 route::get('/imagenes','ImagenController@create')->name('imagenes');
 
-route::post('/imagenes/store','ImagenController@store')->name('imagenes-store');
-
-Route::get('/avisos', function () {
-    return view('avisos');
-});
-
-Route::get('/noticias', function () {
-    return view('inicio.noticias');
-});
-
+route::post('/imagenes','ImagenController@store')->name('imagenes-store');
 
 /*
 | En esta ruta se muestra el perfil del usuario
@@ -37,6 +32,15 @@ Route::get('/noticias', function () {
 | todas sus publcaciones para poder editarlas
 */
 Route::get('/perfil', 'UserController@index')->name('perfil');
+
+route::post('/perfil-edit','UserController@edit')->name('perfil-edit');
+
+route::post('/perfil','UserController@update')->name('perfil-update');
+
+
+Route::get('/avisos', function () {
+    return view('avisos');
+});
 
 Auth::routes();
 
