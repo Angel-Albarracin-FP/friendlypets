@@ -19,6 +19,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fp.css') }}" rel="stylesheet">
+
+    <!-- Exportados para los template -->
+    @yield('recursos')
+
 </head>
 <body>
     <div id="app">

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use FriendlyPets\Partido;
 
 class PartidosSeeder extends Seeder
 {
@@ -20,6 +21,10 @@ class PartidosSeeder extends Seeder
             	'id_provincia' => 1,
             	'name' => 'Azul',
             ],
+        ]);
+
+        factory(Partido::class, 48)->create([
+            'id_provincia' => 1,
         ]);
     }
 }

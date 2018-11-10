@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use FriendlyPets\Localidad;
 
 class LocalidadesSeeder extends Seeder
 {
@@ -21,5 +22,10 @@ class LocalidadesSeeder extends Seeder
             	'name' => 'Munro',
             ],
         ]);
+
+        factory(Localidad::class, 6)->create([
+            'id_partido' => 1,
+        ]);
+
     }
 }

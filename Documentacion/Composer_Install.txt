@@ -1,3 +1,5 @@
 composer require intervention/image
 
 composer require barryvdh/laravel-debugbar --dev
+
+composer require "laravelcollective/html":"^5.4.0"

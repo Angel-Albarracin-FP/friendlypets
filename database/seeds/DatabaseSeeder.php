@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PreguntasFrecuentesSeeder::class,
             ImagenesSeeder::class,
             TiposAnimalSeeder::class,
+            EstaturasSeeder::class,
         ]);
     }
 }
