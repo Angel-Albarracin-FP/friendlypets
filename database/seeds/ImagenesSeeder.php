@@ -18,7 +18,7 @@ class ImagenesSeeder extends Seeder
             ],
             [
             	'path' => '/img/',
-                'name' => 'yo.jpg',
+                'name' => 'notImage.png',
             ],
         ]);
     }

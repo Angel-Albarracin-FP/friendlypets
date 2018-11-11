@@ -24,6 +24,10 @@ class CreateUsersTable extends Migration
             $table->integer('id_imagen')->nullable()->unsigned();
             $table->timestamps();
         });
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('id_localidad')->references('id')->on('localidades');
+            $table->foreign('id_imagen')->references('id')->on('imagenes');
+        });
     }
 
     /**

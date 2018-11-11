@@ -11,6 +11,7 @@ class ProvinciasSeeder extends Seeder
      */
     public function run()
     {
+        // Inserta las 23 provincias y Ciudad Autonoma de Bs.As
         DB::table('provincias')->insert([
             [
             	'name' => 'Buenos Aires',
