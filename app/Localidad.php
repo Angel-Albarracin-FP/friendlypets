@@ -8,4 +8,9 @@ class Localidad extends Model
 {
     protected $table = 'localidades';
     public $timestamps = false;
+
+    public static function localidadesByPart($id){
+    	return Localidad::where('id_partido', $id)->get();
+    }
+
 }

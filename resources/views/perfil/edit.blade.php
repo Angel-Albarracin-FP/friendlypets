@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('recursos')
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{{ asset('js/dropDown.js') }}"></script>
+  
+
+@endsection
+
 @section('content')
 
 <div class="container" style="margin-top:20px">
@@ -36,6 +44,29 @@
   </div>
 </div>
 
+<div class="form-group">
+  <label>Provincia: </label>
+  <select id="comboboxProv">
+    <option>Seleccionar</option>
+    @foreach( $provincias as $provincia )
+    <option value="{{$provincia->id}}">{{$provincia->name}}</option>
+    @endforeach
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Partido: </label>
+  <select id="comboboxPart">
+    <option>Seleccionar</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Localidad: </label>
+  <select id="comboboxLocal">
+    <option>Seleccionar</option>
+  </select>
+</div>
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1id"></label>
@@ -43,6 +74,8 @@
     <button type="submit" class="btn btn-primary">Guardar</button>
   </div>
 </div>
+
+
 
 </fieldset>
 </form>

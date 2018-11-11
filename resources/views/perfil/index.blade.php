@@ -5,18 +5,15 @@
 <div class="container" style="margin-top:20px">
   <div class="row">
     <div class="col-md-6 img">
-      <img src="{{ $avatar->path }}{{ $avatar->name }}"  alt="" class="img-rounded">
-      <label>Foto</label>
+      <h4>{{ $user->name }}</h4>
+      <img src="{{ $avatar->path }}{{ $avatar->name }}"  alt="" class="img-rounded img-fluid">
     </div>
     <div class="col-md-6 details">
       <blockquote>
-        <h5><label>Nombre:</label> {{ $user->name }}</h5>
         <label>Direccion:</label> <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
       </blockquote>
       <p>
-        <label>Mail:</label> {{ $user->email }} <br>
-        www.bootsnipp.com <br>
-        June 18, 1990
+        <label>Mail:</label> {{ $user->email }}
       </p>
       <form method="POST" action="{{ action('UserController@edit') }}">
         {{ csrf_field() }}

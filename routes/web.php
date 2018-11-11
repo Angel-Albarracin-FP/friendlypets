@@ -27,9 +27,17 @@ route::get('/imagenes','ImagenController@create')->name('imagenes');
 route::post('/imagenes','ImagenController@store')->name('imagenes-store');
 
 /*
+| Rutas para obtener los listados de zonas
+*/
+route::get('/partidos/{id}', 'ZonaController@getPartidos')->name('partidos');
+
+route::get('/localidades/{id}', 'ZonaController@getLocalidades')->name('localidades');
+
+
+/*
 | En esta ruta se muestra el perfil del usuario
-| que esta actualmente conectado y tambien
-| todas sus publcaciones para poder editarlas
+| que esta actualmente conectado y tambien todas
+| sus publcaciones para poder editarlas y elimnarlas
 */
 Route::get('/perfil', 'UserController@index')->name('perfil');
 
@@ -37,6 +45,13 @@ route::post('/perfil-edit','UserController@edit')->name('perfil-edit');
 
 route::post('/perfil','UserController@update')->name('perfil-update');
 
+
+/*
+|
+|
+|
+*/
+Route::view('/noticia-crear', 'noticia.create');
 
 Route::get('/avisos', function () {
     return view('avisos');

@@ -2,9 +2,11 @@
 
 namespace FriendlyPets\Http\Controllers;
 
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use FriendlyPets\Imagen;
 use FriendlyPets\User;
+use FriendlyPets\Provincia;
 use Image;
 use Auth;
 use Debugbar;
@@ -31,6 +33,9 @@ class UserController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $avatar = Imagen::find($user->id_imagen);
+        if($avatar == null){
+            $avatar = Imagen::find(2);
+        }
         return view('perfil.index', compact('user', 'avatar'));
     }
 
@@ -74,7 +79,8 @@ class UserController extends Controller
      */
     public function edit()
     {
-        return view('perfil.edit');
+        $provincias = Provincia::all();
+        return view('perfil.edit', compact('provincias'));
     }
 
     /**

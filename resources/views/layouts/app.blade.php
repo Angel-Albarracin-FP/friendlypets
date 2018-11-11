@@ -20,8 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fp.css') }}" rel="stylesheet">
 
-    <!-- Exportados para los template -->
-    @yield('recursos')
+    
 
 </head>
 <body>
@@ -35,5 +34,7 @@
         </main>
         @include('layouts.footer')
     </div>
+    <!-- Exportados para los template -->
+    @yield('recursos')
 </body>
 </html>
