@@ -23,17 +23,15 @@
       @endforeach
     </div>
     <div class="col-sm-8">
-      {{--
         @foreach ($noticias as $noticia)
           <h2>{{ $noticia->titulo }}</h2>
-          <h5>{{ $noticia->fecha }}, autor {{ ?? }} </h5>
+          <h5>{{ $noticia->fecha }}, autor: {{ $noticia->autor }} </h5>
           <div class="fakeimg">
-            <img class="img-fluid" src="{{ ?? }}" alt="img">
+            <img class="img-fluid" style="height: 200px;width: 200px" src="{{ $noticia->imagen }}" alt="img">
           </div>
           <p>{{ $noticia->descripcion }}</p>
         <br>
         @endforeach
-      --}}
     </div>
   </div>
 </div>

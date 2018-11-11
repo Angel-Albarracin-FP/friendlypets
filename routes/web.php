@@ -19,14 +19,6 @@
 Route::get('/', 'InicioController@index')->name('inicio');
 
 /*
-| Esta ruta es solo temporal para 
-|testear guardado de imagenes
-*/
-route::get('/imagenes','ImagenController@create')->name('imagenes');
-
-route::post('/imagenes','ImagenController@store')->name('imagenes-store');
-
-/*
 | Rutas para obtener los listados de zonas
 */
 route::get('/partidos/{id}', 'ZonaController@getPartidos')->name('partidos');
@@ -44,7 +36,6 @@ Route::get('/perfil', 'UserController@index')->name('perfil');
 route::post('/perfil-edit','UserController@edit')->name('perfil-edit');
 
 route::post('/perfil','UserController@update')->name('perfil-update');
-
 
 /*
 |
