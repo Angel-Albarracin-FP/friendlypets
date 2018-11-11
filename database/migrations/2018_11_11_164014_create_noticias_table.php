@@ -16,6 +16,10 @@ class CreateNoticiasTable extends Migration
         Schema::create('noticias', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('titulo');
+            $table->text('descripcion');
+            $table->integer('id_user');
+            $table->integer('id_imagen');
         });
     }
 

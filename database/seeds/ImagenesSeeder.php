@@ -17,8 +17,12 @@ class ImagenesSeeder extends Seeder
                 'name' => 'Logo.png',
             ],
             [
-            	'path' => '/img/',
+            	'path' => '/img//avatares/',
                 'name' => 'notImage.png',
+            ],
+            [
+                'path' => '/img//noticias/',
+                'name' => 'ultimoMomento.jpg',
             ],
         ]);
     }

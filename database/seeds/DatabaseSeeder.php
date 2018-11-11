@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             ImagenesSeeder::class,
             TiposAnimalSeeder::class,
             EstaturasSeeder::class,
+            UsersSeeder::class,
+            NoticiasSeeder::class,
         ]);
     }
 }
