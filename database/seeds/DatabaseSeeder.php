@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PreguntasFrecuentesSeeder::class,
             ImagenesSeeder::class,
             TiposAnimalSeeder::class,
+            TipoAvisoSeeder::class, 
             EstaturasSeeder::class,
             UsersSeeder::class,
             NoticiasSeeder::class,
