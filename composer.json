@@ -29,8 +29,7 @@
             "FriendlyPets\\": "app/"
         },
         "files": [
-        "app/FuncionesComunes.php",
-        "app/MiNoticia.php"
+        "app/FuncionesComunes.php"
         ]
     },
     "autoload-dev": {

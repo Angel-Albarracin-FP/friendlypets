@@ -24,12 +24,18 @@
     </div>
     <div class="col-sm-8">
         @foreach ($noticias as $noticia)
-          <h2>{{ $noticia->titulo }}</h2>
-          <h5>{{ $noticia->fecha }}, autor: {{ $noticia->autor }} </h5>
-          <div class="fakeimg">
-            <img class="img-fluid" style="height: 200px;width: 200px" src="{{ $noticia->imagen }}" alt="img">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="fakeimg">
+              <img class="img-fluid" style="height: 200px;width: 400px" src="{{ $noticia->imagen->path }}{{ $noticia->imagen->name }}" alt="img">
+            </div>
           </div>
-          <p>{{ $noticia->descripcion }}</p>
+          <div class="col-sm-6">
+            <h2>{{ $noticia->titulo }}</h2>
+            <h5>{{ $noticia->created_at }}, Autor: {{ $noticia->user->name }} </h5>
+            <p>{{ $noticia->descripcion }}</p>
+          </div>
+        </div>
         <br>
         @endforeach
     </div>

@@ -13,4 +13,8 @@ class Partido extends Model
     	return Partido::where('id_provincia', $id)->get();
     }
 
+    public function provincia() {
+        return $this->belongsTo(Provincia::class, 'id_provincia');
+    }
+
 }

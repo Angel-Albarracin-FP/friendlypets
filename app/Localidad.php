@@ -13,4 +13,8 @@ class Localidad extends Model
     	return Localidad::where('id_partido', $id)->get();
     }
 
+    public function partido() {
+        return $this->belongsTo(Partido::class, 'id_partido');
+    }
+
 }

@@ -6,11 +6,14 @@
   <div class="row">
     <div class="col-md-6 img">
       <h4>{{ $user->name }}</h4>
-      <img src="{{ $avatar->path }}{{ $avatar->name }}"  alt="" class="img-rounded img-fluid">
+      <img src="{{ $user->imagen->path }}{{ $user->imagen->name }}"  alt="" class="img-rounded img-fluid">
     </div>
     <div class="col-md-6 details">
       <blockquote>
-        <label>Direccion:</label> <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
+        <label>Zona:</label>
+        @if ($user->localidad != null) 
+        <cite title="Source Title">{{ $user->localidad->partido->provincia->name}}, {{ $user->localidad->partido->name }}, {{ $user->localidad->name }}</cite>
+        @endif
       </blockquote>
       <p>
         <label>Mail:</label> {{ $user->email }}

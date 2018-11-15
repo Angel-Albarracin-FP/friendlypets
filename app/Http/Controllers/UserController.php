@@ -32,11 +32,10 @@ class UserController extends Controller
     public function index()
     {
         $user = User::find(Auth::user()->id);
-        $avatar = Imagen::find($user->id_imagen);
-        if($avatar == null){
-            $avatar = Imagen::find(2);
+        if($user->id_imagen == null){
+            $user->id_imagen = 2;
         }
-        return view('perfil.index', compact('user', 'avatar'));
+        return view('perfil.index', compact('user'));
     }
 
     /**

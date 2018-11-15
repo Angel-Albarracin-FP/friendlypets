@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function imagen() {
+        return $this->belongsTo(Imagen::class, 'id_imagen');
+    }
+
+    public function localidad() {
+        return $this->belongsTo(Localidad::class, 'id_localidad');
+    }
+    
 }
