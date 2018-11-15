@@ -26,7 +26,7 @@ class FuncionesComunes
     */
     public static function guardarImagen($ruta, $imagen){
     	//Guarda imagen en el proyecto
-        $rutaProyecto = public_path() . $ruta;
+        $rutaProyecto = public_path() . '/' . $ruta;
         $imagenProyecto = Image::make($imagen);
         $temp_name = FuncionesComunes::cadenaAleatoria() . '.' . $imagen->getClientOriginalExtension();
         $imagenProyecto->save($rutaProyecto . $temp_name, 100);

@@ -13,16 +13,36 @@ class ImagenesSeeder extends Seeder
     {
         DB::table('imagenes')->insert([
             [
-            	'path' => '/img/',
+            	'path' => 'img/',
                 'name' => 'Logo.png',
             ],
             [
-            	'path' => '/img/avatares/',
+            	'path' => 'img/avatares/',
                 'name' => 'notImage.png',
             ],
             [
-                'path' => '/img/noticias/',
+                'path' => 'img/noticias/',
                 'name' => 'ultimoMomento.jpg',
+            ],
+            [
+                'path' => 'img/avisos/',
+                'name' => 'perdido.jpg',
+            ],
+            [
+                'path' => 'img/avisos/',
+                'name' => 'adopcion.jpg',
+            ],
+            [
+                'path' => 'img/avisos/',
+                'name' => 'encontrado.jpg',
+            ],
+            [
+                'path' => 'img/avisos/',
+                'name' => 'gato-en-adopcion.jpg',
+            ],
+            [
+                'path' => 'img/avisos/',
+                'name' => 'gato-perdido.jpg',
             ],
         ]);
     }
