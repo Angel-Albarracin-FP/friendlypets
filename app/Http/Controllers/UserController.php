@@ -31,11 +31,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::find(Auth::user()->id);
-        if($user->id_imagen == null){
-            $user->id_imagen = 2;
-        }
-        return view('perfil.index', compact('user'));
+        //
     }
 
     /**
@@ -65,9 +61,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $user = User::find(Auth::user()->id);
+        $avisos = $user->avisos;
+        Debugbar::info( $avisos );
+        if($user->id_imagen == null){
+            $user->id_imagen = 2;
+        }
+        return view('perfil.index', compact('user', 'avisos'));
     }
 
     /**
@@ -92,8 +94,8 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = User::find(Auth::user()->id);
-        $imagenDB = new Imagen;
-        $imagenName = FuncionesComunes::guardarImagen('/img/avatares/', $request->file('file'));
+        $imagenDB = Imagen::make();
+        $imagenName = FuncionesComunes::guardarImagen('img/avatares/', $request->file('file'));
         //Tomo la imagen de la DB para tomar su id
         $imagenDB = Imagen::where('name', $imagenName)->get();
         // Actualizo al user
@@ -102,10 +104,9 @@ class UserController extends Controller
         }
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->id_localidad = $request->input('localidad');
         $user->save();
-
         return redirect('/perfil');
-
     }
 
     /**

@@ -20,6 +20,7 @@ Route::get('/', 'InicioController@index')->name('inicio');
 
 /*
 | Rutas para obtener los listados de zonas
+| usados en request con Ajax
 */
 route::get('/partidos/{id}', 'ZonaController@getPartidos')->name('partidos');
 
@@ -30,24 +31,43 @@ route::get('/localidades/{id}', 'ZonaController@getLocalidades')->name('localida
 | En esta ruta se muestra el perfil del usuario
 | que esta actualmente conectado y tambien todas
 | sus publcaciones para poder editarlas y elimnarlas
+| 
+| Requieren autenticacion
 */
-Route::get('/perfil', 'UserController@index')->name('perfil');
+Route::get('/perfil', 'UserController@show')->name('perfil-show');
 
-route::post('/perfil-edit','UserController@edit')->name('perfil-edit');
+route::get('/perfil/edit','UserController@edit')->name('perfil-edit');
 
-route::post('/perfil','UserController@update')->name('perfil-update');
+route::patch('/perfil','UserController@update')->name('perfil-update');
 
 /*
 |
 |
 |
 */
-Route::view('/noticia-crear', 'noticia.create');
+Route::view('/noticia-crear', 'noticia.create')->middleware('auth');
 
-Route::get('/avisos', function () {
-    return view('avisos');
-});
 
+/*
+|
+|
+|
+*/
+Route::get('/avisos/create', 'AvisoController@create')->name('aviso-create')->middleware('auth');
+
+Route::get('/avisos', 'AvisoController@index')->name('aviso-index');
+
+route::post('/avisos', 'AvisoController@store')->name('aviso-store');
+
+/*
+Route::get('/avisos', 'AvisoController@show')->name('aviso-show');
+
+
+
+Route::get('/avisos', 'AvisoController@edit')->name('aviso-edit');
+
+Route::get('/avisos', 'AvisoController@destroy')->name('aviso-destroy');
+*/
 Auth::routes();
 
 /* Route::get('/home', 'HomeController@index')->name('home'); */

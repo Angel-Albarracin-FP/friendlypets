@@ -35,5 +35,10 @@ class User extends Authenticatable
     public function localidad() {
         return $this->belongsTo(Localidad::class, 'id_localidad');
     }
+
+    public function avisos()
+    {
+        return $this->hasMany(Aviso::class, 'id_user');
+    }
     
 }
