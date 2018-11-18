@@ -9,7 +9,7 @@
 
 @section('content')
 
-<div class="container" style="margin-top:20px">
+<div>
     <form class="form-horizontal" method="POST" action="{{ action('UserController@update') }}" enctype="multipart/form-data">
       @method('PATCH')
       {{ csrf_field() }}
@@ -44,9 +44,7 @@
   </div>
 </div>
 
-@include('perfil.zonas')
-
-<input type="hidden" id="localidad" name="localidad" value="0">
+@include('componente.zonas')
 
 <!-- Button -->
 <div class="form-group">

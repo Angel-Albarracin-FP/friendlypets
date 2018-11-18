@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="container" style="margin-top:20px">
+<div>
   <div class="row">
     <div class="col-md-6 img">
       <h4>{{ $user->name }}</h4>
-      <img src="{{ $user->imagen->path }}{{ $user->imagen->name }}"  alt="" class="img-rounded img-fluid">
+      <img src="{{ $user->imagen->path }}{{ $user->imagen->name }}"  alt="" class="img-rounded img-responsive">
     </div>
     <div class="col-md-6 details">
       <blockquote>
@@ -18,25 +18,17 @@
       <p>
         <label>Mail:</label> {{ $user->email }}
       </p>
-      <form method="POST" action="{{ action('UserController@edit') }}">
-        {{ csrf_field() }}
-        <button type="submit" class="btn btn-primary">Editar</button>
-      </form>
+        <button type="submit" onclick="location.href='/perfil/edit'" class="btn btn-primary">Editar</button>
     </div>
   </div>
 
   {{-- En esta seccion iran los avisos pertenecientes al usuario --}}
-  <div class="col-sm-8">
-      {{--
-        @foreach ($avisos as $aviso)
-          <h2>{{ $aviso->titulo }}</h2>
-          <div class="fakeimg">
-            <img class="img-fluid" src="{{ ?? }}" alt="img">
-          </div>
-          <p>{{ $aviso->descripcion }}</p>
-        <br>
-        @endforeach
-      --}}
+  <div class="col-sm-12" style="margin-top:20px">
+    @forelse( $avisos as $aviso)
+      @include('componente.ficha')
+    @empty
+
+    @endforelse
   </div>
 
 </div>

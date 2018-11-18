@@ -1,4 +1,4 @@
-<header>
+<header class="hoc clear">
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-principal">
     <a class="navbar-brand" href="{{ url('/') }}">
       {{ config('app.name', 'FriendlyPets') }}

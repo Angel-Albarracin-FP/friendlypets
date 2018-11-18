@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="fakeimg">
-        <img class="img-fluid" style="height: 200px;width: 400px" src="{{ $noticia->imagen->path }}{{ $noticia->imagen->name }}" alt="img">
+        <img class="img-responsive" style="height: 200px;width: 400px" src="{{ $noticia->imagen->path }}{{ $noticia->imagen->name }}" alt="img">
       </div>
     </div>
     <div class="col-sm-6">

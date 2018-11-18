@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fp.css') }}" rel="stylesheet">
 
     
@@ -28,13 +29,15 @@
         @include('layouts.navbar')
 
         <main role="main" class="container">
-            <br>
-            <br>
             @yield('content')
         </main>
         @include('layouts.footer')
     </div>
     <!-- Exportados para los template -->
     @yield('recursos')
+    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.backtotop.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.mobilemenu.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.flexslider-min.js') }}" defer></script>
 </body>
 </html>

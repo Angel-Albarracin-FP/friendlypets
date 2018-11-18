@@ -2,13 +2,13 @@
 
 @section('content')
 
-<div class="container" style="margin-top:20px">
+<div>
   <div class="row">
     <div class="col-sm-4">
       <h2>¿Quienes somos?</h2>
       <h3>FriendlyPets</h3>
       <div class="fakeimg">
-        <img class="img-fluid bg-primary" src="{{ $logo->path }}{{ $logo->name }}" alt="FriendlyPets">
+        <img class="img-responsive bg-primary" src="{{ $logo->path }}{{ $logo->name }}" alt="FriendlyPets">
       </div>
       <p>
         Somos un grupo de personas interesadas en ayudar a nustros amigos de 4 patas. <br>
