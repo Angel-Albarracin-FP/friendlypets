@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             EstaturasSeeder::class,
             UsersSeeder::class,
             NoticiasSeeder::class,
+            AvisosSeeder::class,
         ]);
     }
 }

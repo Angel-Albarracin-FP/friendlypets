@@ -17,14 +17,16 @@ class CreateAvisosTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('id_user')->unsigned();
+            $table->integer('id_tipo_aviso')->unsigned();
             $table->integer('id_tipo_animal')->unsigned();
             $table->integer('id_localidad')->unsigned();
             $table->integer('id_imagen')->unsigned();
             $table->string('sexo');
-            $table->text('description');
+            $table->text('descripcion');
         });
         Schema::table('avisos', function (Blueprint $table) {
             $table->foreign('id_localidad')->references('id')->on('localidades');
+             $table->foreign('id_tipo_aviso')->references('id')->on('tipo_aviso');
             $table->foreign('id_imagen')->references('id')->on('imagenes');
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_tipo_animal')->references('id')->on('tipos_animal');
