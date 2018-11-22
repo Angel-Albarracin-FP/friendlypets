@@ -44,4 +44,10 @@ class Aviso extends Model
         }
     }
 
+    public function scopeSexo($query, $sexo = ' '){
+        if($sexo == 'M' || $sexo == 'H' ){
+            return $query->where('sexo', $sexo);
+        }
+    }
+
 }
