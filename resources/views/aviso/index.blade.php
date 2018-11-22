@@ -15,6 +15,6 @@
     @foreach( $avisos as $aviso )
     @include('componente.ficha')
     @endforeach
-    {!! $avisos->render() !!}
+    {!! $avisos->appends(['animal' => $tipoAnimalId, 'aviso' => $tipoAvisoId, 'sexo' => $sexo])->links() !!}
 </div> 
 @endsection

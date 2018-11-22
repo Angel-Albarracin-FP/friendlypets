@@ -25,6 +25,11 @@
         </div>
         <div class="col-md-2 pt-3">
           <div class="form-group ">
+            <select id="sexo" name="sexo" class="form-control">
+              <option value="Z" selected>Sexo</option>
+              <option value="M">Macho</option>
+              <option value="H">Hembra</option>
+            </select>
           </div>
         </div>
         <div class="col-md-2">
