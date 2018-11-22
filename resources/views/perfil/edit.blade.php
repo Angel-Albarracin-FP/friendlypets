@@ -9,6 +9,16 @@
 
 @section('content')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div>
     <form class="form-horizontal" method="POST" action="{{ action('UserController@update') }}" enctype="multipart/form-data">
       @method('PATCH')
@@ -44,6 +54,7 @@
   </div>
 </div>
 
+<!-- Selects de las zonas --> 
 @include('componente.zonas')
 
 <!-- Button -->

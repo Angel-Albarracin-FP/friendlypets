@@ -9,6 +9,16 @@
 
 @section('content')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div>
   <form class="form-horizontal" method="POST" action="{{ action('AvisoController@store') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
@@ -31,7 +41,7 @@
         <div class="col-md-2 pt-3">
           <div class="form-group ">
             <select id="inputState" name="animal" class="form-control">
-              <option selected>Animal</option>
+              <option value="" selected>Animal</option>
               @foreach ( $tipoAnimal as $animal )
                 <option value="{{$animal->id}}">{{$animal->tipo}}</option>
               @endforeach
@@ -41,10 +51,19 @@
         <div class="col-md-2 pt-3">
           <div class="form-group">
             <select id="inputState" name="aviso" class="form-control">
-              <option selected>Aviso</option>
+              <option value="" selected>Aviso</option>
               @foreach ( $tipoAviso as $aviso )
                 <option value="{{$aviso->id}}">{{$aviso->tipo}}</option>
               @endforeach
+            </select>
+          </div>
+        </div>
+        <div class="col-md-2 pt-3">
+          <div class="form-group ">
+            <select id="sexo" name="sexo" class="form-control">
+              <option value="" selected>Sexo</option>
+              <option value="M">Macho</option>
+              <option value="H">Hembra</option>
             </select>
           </div>
         </div>

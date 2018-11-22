@@ -93,6 +93,13 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'file' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'localidad' => 'required',
+        ]);
+
         $user = User::find(Auth::user()->id);
         $imagenDB = Imagen::make();
         $imagenName = FuncionesComunes::guardarImagen('img/avatares/', $request->file('file'));

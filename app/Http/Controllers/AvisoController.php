@@ -3,6 +3,7 @@
 namespace FriendlyPets\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use FriendlyPets\Provincia;
 use FriendlyPets\TipoAnimal;
 use FriendlyPets\TipoAviso;
@@ -21,17 +22,21 @@ class AvisoController extends Controller
      */
     public function index(Request $request)
     {
-        Debugbar::info($request->all());
-        $filtros = $request->all();
-        Debugbar::info($filtros);
+        $tipoAvisoId = 0;
+        $tipoAnimalId = 0;
+        $sexo = 'Z';
+        $tipoAvisoId = $request->input('aviso');
+        $tipoAnimalId = $request->input('animal');
+        $sexo = $request->input('sexo');
         $tipoAnimal = TipoAnimal::all();
         $tipoAviso = TipoAviso::all();
         $provincias = Provincia::all();
         $avisos = Aviso::orderBy('created_at')
-            ->TipoAviso($request->input('aviso'))
-            ->TipoAnimal($request->input('animal'))
+            ->TipoAviso($tipoAvisoId)
+            ->TipoAnimal($tipoAnimalId)
+            ->sexo($sexo)
             ->paginate(5);
-        return view('aviso.index', compact('tipoAnimal', 'tipoAviso', 'provincias', 'avisos', 'filtros'));
+        return view('aviso.index', compact('tipoAnimal', 'tipoAviso', 'provincias', 'avisos', 'tipoAvisoId', 'tipoAnimalId', 'sexo'));
     }
 
     /**
@@ -55,22 +60,31 @@ class AvisoController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'file' => 'required',
+            'descripcion' => 'required|max:255',
+            'localidad' => 'required',
+            'aviso' => 'required',
+            'animal' => 'required',
+            'sexo' => 'required',
+        ]);
+
+        // Guardando datos en el modelo Imagen
         $imagenName = FuncionesComunes::guardarImagen('img/avisos/', $request->file('file'));
         $imagenDB = Imagen::make();
         $imagenDB = Imagen::where('name', $imagenName)->get();
+        // Guardando datos en el modelo Aviso
         $aviso = Aviso::make();
         foreach ($imagenDB as $imgDB) {
            $aviso->id_imagen = $imgDB->id;
         }
-        Debugbar::info($request->all());
-        
-        Debugbar::info( $aviso );
         $aviso->id_user = Auth::user()->id;
         $aviso->descripcion = $request->input('descripcion');
         $aviso->id_localidad = $request->input('localidad');
         $aviso->id_tipo_animal = $request->input('animal');
         $aviso->id_tipo_aviso = $request->input('aviso');
-        $aviso->sexo = 'M';
+        $aviso->sexo = $request->input('sexo');
         $aviso->save();
         return redirect('/avisos');
     }
@@ -83,7 +97,8 @@ class AvisoController extends Controller
      */
     public function show($id)
     {
-        //
+        $aviso = Aviso::find($id);
+        return view('aviso.show', compact('aviso'));
     }
 
     /**
@@ -94,7 +109,11 @@ class AvisoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aviso = Aviso::find($id);
+        $tipoAnimal = TipoAnimal::all();
+        $tipoAviso = TipoAviso::all();
+        $provincias = Provincia::all();
+        return view('aviso.edit', compact('aviso', 'tipoAnimal', 'tipoAviso', 'provincias'));
     }
 
     /**
@@ -106,7 +125,32 @@ class AvisoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'file' => 'required',
+            'descripcion' => 'required|max:255',
+            'localidad' => 'required',
+            'aviso' => 'required',
+            'animal' => 'required',
+            'sexo' => 'required',
+        ]);
+        
+        $aviso = Aviso::find($id);
+        // Guardando datos en el modelo Imagen
+        $imagenName = FuncionesComunes::guardarImagen('img/avisos/', $request->file('file'));
+        $imagenDB = Imagen::make();
+        $imagenDB = Imagen::where('name', $imagenName)->get();
+        // Guardando datos en el modelo Aviso
+        foreach ($imagenDB as $imgDB) {
+           $aviso->id_imagen = $imgDB->id;
+        }
+        $aviso->descripcion = $request->input('descripcion');
+        $aviso->id_localidad = $request->input('localidad');
+        $aviso->id_tipo_animal = $request->input('animal');
+        $aviso->id_tipo_aviso = $request->input('aviso');
+        $aviso->sexo = $request->input('sexo');
+        $aviso->save();
+        return redirect('/perfil');
     }
 
     /**
@@ -117,6 +161,12 @@ class AvisoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aviso = Aviso::find($id);
+        Storage::delete( (public_path() . '/' . $aviso->imagen->path . $aviso->imagen->name) );
+        $idImg = $aviso->id_imagen;
+        $aviso->delete();
+        Imagen::destroy($idImg);
+        return redirect('/perfil');
+
     }
 }

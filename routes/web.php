@@ -57,7 +57,15 @@ Route::get('/avisos/create', 'AvisoController@create')->name('aviso-create')->mi
 
 Route::get('/avisos', 'AvisoController@index')->name('aviso-index');
 
-route::post('/avisos', 'AvisoController@store')->name('aviso-store');
+Route::get('/avisos/{id}', 'AvisoController@show')->name('aviso-show');
+
+Route::get('/avisos/{id}/editar', 'AvisoController@edit')->name('aviso-edit')->middleware('auth');
+
+route::post('/avisos', 'AvisoController@store')->name('aviso-store')->middleware('auth');
+
+route::patch('/avisos/{id}', 'AvisoController@update')->name('aviso-update')->middleware('auth');
+
+route::delete('/avisos/{id}', 'AvisoController@destroy')->name('aviso-delete')->middleware('auth');
 
 /*
 Route::get('/avisos', 'AvisoController@show')->name('aviso-show');
