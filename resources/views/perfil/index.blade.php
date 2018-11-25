@@ -10,15 +10,31 @@
     </div>
     <div class="col-md-6 details">
       <blockquote>
-        <label>Zona:</label>
+        Zona: 
         @if ($user->localidad != null) 
         <cite title="Source Title">{{ $user->localidad->partido->provincia->name}}, {{ $user->localidad->partido->name }}, {{ $user->localidad->name }}</cite>
         @endif
       </blockquote>
       <p>
-        <label>Mail:</label> {{ $user->email }}
+        Mail: {{ $user->email }}
       </p>
-        <button type="submit" onclick="location.href='/perfil/edit'" class="btn btn-primary">Editar</button>
+      <p>
+        @if ( $user->voluntario )
+          Eres voluntario como: 
+          @if ( $user->voluntario->hogar )
+            hogar, 
+          @endif
+          @if ( $user->voluntario->rescatista )
+            rescatista, 
+          @endif
+          @if ( $user->voluntario->difundidor )
+            difundidor 
+          @endif
+        @else 
+          No eres Voluntario? Animate a serlo :D
+        @endif
+      </p>
+      <button type="submit" onclick="location.href='/perfil/edit'" class="btn btn-primary">Editar</button>
     </div>
   </div>
 

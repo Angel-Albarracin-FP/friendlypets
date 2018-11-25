@@ -36,6 +36,10 @@ class User extends Authenticatable
         return $this->belongsTo(Localidad::class, 'id_localidad');
     }
 
+    public function voluntario(){
+        return $this->belongsTo(Voluntario::class, 'id');
+    }
+
     public function avisos()
     {
         return $this->hasMany(Aviso::class, 'id_user');

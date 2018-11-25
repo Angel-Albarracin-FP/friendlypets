@@ -4,6 +4,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="{{ asset('js/dropDown.js') }}"></script>
+  <script src="{{ asset('js/checkbox.js') }}"></script>
   
 @endsection
 
@@ -56,6 +57,35 @@
 
 <!-- Selects de las zonas --> 
 @include('componente.zonas')
+
+
+<!-- Checks como voluntariado -->
+<div class="form-group">
+  <div class="col-md-2">
+    <label class="control-label">Quieres ser voluntario?</label>
+    <span class="button-checkbox">
+      <button type="button" class="btn" data-color="primary">Si</button>
+      <input type="checkbox" name="voluntario" class="hidden" />
+    </span>
+  </div>
+ 
+  <div class="form-group" id="options">
+    <label class="control-label">como: </label>
+    <span class="button-checkbox">
+      <button type="button" class="btn" data-color="primary">Hogar</button>
+      <input type="checkbox" name="hogar" class="hidden" />
+    </span>
+    <span class="button-checkbox">
+      <button type="button" class="btn" data-color="primary">Rescatista</button>
+      <input type="checkbox" name="rescatista" class="hidden" />
+    </span>
+    <span class="button-checkbox">
+      <button type="button" class="btn" data-color="primary">Difundidor</button>
+      <input type="checkbox" name="difundidor" class="hidden" />
+    </span>
+  </div>
+  
+</div>
 
 <!-- Button -->
 <div class="form-group">

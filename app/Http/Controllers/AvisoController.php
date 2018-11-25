@@ -61,15 +61,7 @@ class AvisoController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'file' => 'required',
-            'descripcion' => 'required|max:255',
-            'localidad' => 'required',
-            'aviso' => 'required',
-            'animal' => 'required',
-            'sexo' => 'required',
-        ]);
-
+        $this->validar($request);
         // Guardando datos en el modelo Imagen
         $imagenName = FuncionesComunes::guardarImagen('img/avisos/', $request->file('file'));
         $imagenDB = Imagen::make();
@@ -113,6 +105,9 @@ class AvisoController extends Controller
         $tipoAnimal = TipoAnimal::all();
         $tipoAviso = TipoAviso::all();
         $provincias = Provincia::all();
+        if( $aviso->id_user != Auth::user()->id ){
+            return "Que haces loco, este no es tu aviso. No te hagas el pillo";
+        }
         return view('aviso.edit', compact('aviso', 'tipoAnimal', 'tipoAviso', 'provincias'));
     }
 
@@ -126,15 +121,7 @@ class AvisoController extends Controller
     public function update(Request $request, $id)
     {
 
-        $request->validate([
-            'file' => 'required',
-            'descripcion' => 'required|max:255',
-            'localidad' => 'required',
-            'aviso' => 'required',
-            'animal' => 'required',
-            'sexo' => 'required',
-        ]);
-        
+        $this->validar($request);
         $aviso = Aviso::find($id);
         // Guardando datos en el modelo Imagen
         $imagenName = FuncionesComunes::guardarImagen('img/avisos/', $request->file('file'));
@@ -169,4 +156,17 @@ class AvisoController extends Controller
         return redirect('/perfil');
 
     }
+
+    private function validar(Request $request)
+    {
+        $request->validate([
+            'file' => 'required',
+            'descripcion' => 'required|max:255',
+            'localidad' => 'required',
+            'aviso' => 'required',
+            'animal' => 'required',
+            'sexo' => 'required',
+        ]);
+    }
+
 }
