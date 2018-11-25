@@ -82,9 +82,6 @@ class ProvinciasSeeder extends Seeder
             [
                 'name' => 'Tierra del Fuego',
             ],
-            [
-                'name' => 'Ciudad Autónoma de Buenos Aires',
-            ],
         ]);
     }
 }

@@ -10,21 +10,25 @@ class PartidosSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        DB::table('partidos')->insert([
-            [
-            	'id_provincia' => 1,
-            	'name' => 'Vicente López',
-            ],
-            [
-            	'id_provincia' => 1,
-            	'name' => 'Azul',
-            ],
-        ]);
+  public function run()
+  {
+    DB::table('partidos')->insert([
+      [
+        'id_provincia' => 1,
+        'name' => 'Ciudad Autónoma de Buenos Aires',
+      ],
+      [
+        'id_provincia' => 1,
+        'name' => 'Vicente López',
+      ],
+      [
+        'id_provincia' => 1,
+        'name' => 'Azul',
+      ],
+    ]);
 
-        factory(Partido::class, 48)->create([
-            'id_provincia' => 1,
-        ]);
-    }
+    factory(Partido::class, 20)->create([
+      'id_provincia' => 1,
+    ]);
+  }
 }
