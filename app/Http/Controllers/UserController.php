@@ -94,28 +94,28 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
-            'file' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'localidad' => 'required',
-        ]);
-        $user = User::find(Auth::user()->id);
-        $this->actualizaVoluntario($request, $user->id);
-        $imagenDB = Imagen::make();
-        $imagenName = FuncionesComunes::guardarImagen('img/avatares/', $request->file('file'));
-        //Tomo la imagen de la DB para tomar su id
-        $imagenDB = Imagen::where('name', $imagenName)->get();
-        // Actualizo al user
-        foreach ($imagenDB as $imgDB) {
-            $user->id_imagen = $imgDB->id;
-        }
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->id_localidad = $request->input('localidad');
-        $user->save();
-        
-        return redirect('/perfil');
+      $request->validate([
+        'file' => 'required',
+        'name' => 'required',
+        'email' => 'required',
+        'localidad' => 'required',
+      ]);
+      $user = User::find(Auth::user()->id);
+      $this->actualizaVoluntario($request, $user->id);
+      $imagenDB = Imagen::make();
+      $imagenName = FuncionesComunes::guardarImagen('img/avatares/', $request->file('file'));
+      //Tomo la imagen de la DB para tomar su id
+      $imagenDB = Imagen::where('name', $imagenName)->get();
+      // Actualizo al user
+      foreach ($imagenDB as $imgDB) {
+        $user->id_imagen = $imgDB->id;
+      }
+      $user->name = $request->input('name');
+      $user->email = $request->input('email');
+      $user->id_localidad = $request->input('localidad');
+      $user->save();
+      
+      return redirect('/perfil');
     }
 
     /**

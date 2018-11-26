@@ -19,10 +19,6 @@ class PreguntasFrecuentesSeeder extends Seeder
             					nuestros anuncios por ultimo puedes ponerte en contacto con algun refugio o asociacion pretectora para que te 
             					ayuden a ubicarle un hogar transitorio mientras buscan a su dueño o un adoptante.',
             ],
-           /* [
-            	'pregunta' => '1',
-            	'respuesta' => 'Azul',
-            ],*/
         ]);
     }
 }

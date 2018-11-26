@@ -67,15 +67,4 @@ route::patch('/avisos/{id}', 'AvisoController@update')->name('aviso-update')->mi
 
 route::delete('/avisos/{id}', 'AvisoController@destroy')->name('aviso-delete')->middleware('auth');
 
-/*
-Route::get('/avisos', 'AvisoController@show')->name('aviso-show');
-
-
-
-Route::get('/avisos', 'AvisoController@edit')->name('aviso-edit');
-
-Route::get('/avisos', 'AvisoController@destroy')->name('aviso-destroy');
-*/
 Auth::routes();
-
-/* Route::get('/home', 'HomeController@index')->name('home'); */

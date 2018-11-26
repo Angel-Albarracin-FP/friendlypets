@@ -21,6 +21,11 @@ class CreateNoticiasTable extends Migration
             $table->integer('id_user');
             $table->integer('id_imagen');
         });
+
+        Schema::table('noticias', function (Blueprint $table) {
+            $table->foreign('id_imagen')->references('id')->on('imagenes');
+            $table->foreign('id_user')->references('id')->on('users');
+        });
     }
 
     /**

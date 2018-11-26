@@ -165,6 +165,7 @@ return [
         // FriendlyPets\Providers\BroadcastServiceProvider::class,
         FriendlyPets\Providers\EventServiceProvider::class,
         FriendlyPets\Providers\RouteServiceProvider::class,
+        Caffeinated\Shinobi\ShinobiServiceProvider::class,
 
     ],
 
