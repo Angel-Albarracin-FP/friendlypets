@@ -18,10 +18,9 @@ class CreateNoticiasTable extends Migration
             $table->timestamps();
             $table->string('titulo');
             $table->text('descripcion');
-            $table->integer('id_user');
-            $table->integer('id_imagen');
+            $table->integer('id_user')->unsigned();
+            $table->integer('id_imagen')->unsigned();
         });
-
         Schema::table('noticias', function (Blueprint $table) {
             $table->foreign('id_imagen')->references('id')->on('imagenes');
             $table->foreign('id_user')->references('id')->on('users');
