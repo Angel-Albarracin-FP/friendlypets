@@ -25,9 +25,6 @@ Route::get('/perfil', 'UserController@show')->name('perfil.show');
 route::get('/perfil/edit','UserController@edit')->name('perfil.edit');
 route::patch('/perfil','UserController@update')->name('perfil.update');
 
-//Rutas de avisos
-Route::get('/avisos', 'AvisoController@index')->name('aviso.index');
-Route::get('/avisos/{id}', 'AvisoController@show')->name('aviso.show');
 //Rutas de Noticias
 Route::get('/noticia/{id}', 'NoticiaController@show')->name('noticia.show');
 
@@ -51,5 +48,9 @@ Route::middleware('auth')->group(function()
   // Listado de usuarios
   Route::get('/usuarios', 'UserController@index')->name('user.index')->middleware('permission:user.index');
 });
+
+//Rutas de avisos
+Route::get('/avisos', 'AvisoController@index')->name('aviso.index');
+Route::get('/avisos/{id}', 'AvisoController@show')->name('aviso.show');
 
 Auth::routes();
