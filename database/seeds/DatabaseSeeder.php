@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             NoticiasSeeder::class,
             AvisosSeeder::class,
+            PermisosSeeder::class,
+            RolesSeeder::class,
         ]);
     }
 }

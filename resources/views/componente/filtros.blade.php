@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="col-md-2">
-          <button type="button" onclick="location.href='/avisos/create'" class="btn btn-primary btn-block">Crear</button>
+          <button type="button" onclick="location.href='/avisos/crear'" class="btn btn-primary btn-block">Crear</button>
         </div>
       </div>
     </div>
