@@ -3,7 +3,9 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="fakeimg">
-        <img class="img-responsive" style="height: 200px;width: 400px" src="{{ $noticia->imagen->path }}{{ $noticia->imagen->name }}" alt="img">
+        <a href="/noticia/{{$noticia->id}}">
+          <img class="img-responsive" style="height: 200px;width: 400px" src="{{ $noticia->imagen->path }}{{ $noticia->imagen->name }}" alt="img">
+        </a>
       </div>
     </div>
     <div class="col-sm-6">

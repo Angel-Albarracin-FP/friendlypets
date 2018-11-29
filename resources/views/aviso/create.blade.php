@@ -70,7 +70,7 @@
       </div>
       <div class="form-group"> 
         <div class="col-md-4">
-          <textarea color="black" name="descripcion" cols="40" rows="5" placeholder="descripcion"></textarea>
+          <textarea color="black" style="color:black;" name="descripcion" cols="40" rows="5" placeholder="descripcion"></textarea>
         </div>
       </div>
       <!-- Button -->

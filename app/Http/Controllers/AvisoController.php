@@ -46,7 +46,6 @@ class AvisoController extends Controller
      */
     public function create()
     {
-        dd('Create');
         $tipoAnimal = TipoAnimal::all();
         $tipoAviso = TipoAviso::all();
         $provincias = Provincia::all();
@@ -90,7 +89,6 @@ class AvisoController extends Controller
      */
     public function show($id)
     {
-        dd('Show');
         $aviso = Aviso::find($id);
         return view('aviso.show', compact('aviso'));
     }

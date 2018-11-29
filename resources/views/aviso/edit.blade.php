@@ -71,7 +71,7 @@
       </div>
       <div class="form-group"> 
         <div class="col-md-4">
-          <textarea color="black" name="descripcion" cols="40" rows="5">
+          <textarea color="black" style="color:black;" name="descripcion" cols="40" rows="5">
             {{ $aviso->descripcion }}
           </textarea>
         </div>

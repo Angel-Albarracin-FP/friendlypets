@@ -38,27 +38,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -68,10 +47,11 @@ class UserController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $avisos = $user->avisos;
+        $noticias = $user->noticias;
         if($user->id_imagen == null){
             $user->id_imagen = 2;
         }
-        return view('perfil.index', compact('user', 'avisos'));
+        return view('perfil.index', compact('user', 'avisos', 'noticias'));
     }
 
     /**

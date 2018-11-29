@@ -40,12 +40,21 @@
 
   {{-- En esta seccion iran los avisos pertenecientes al usuario --}}
   <div class="col-sm-12" style="margin-top:20px">
-    @forelse( $avisos as $aviso)
-      @include('componente.ficha')
-    @empty
-
-    @endforelse
+    @if (!$avisos->isEmpty())
+      <h3>Listado de avisos</h3>
+      @foreach( $avisos as $aviso)
+        @include('componente.ficha')
+      @endforeach
+    @endif
   </div>
+
+  {{-- En esta seccion iran las noticias pertenecientes al usuario --}}
+  <div class="col-sm-12" style="margin-top:20px">
+      @if (!$noticias->isEmpty())
+        <h3>Listado de noticias</h3>
+        @include('noticia.index')
+      @endif
+    </div>
 
 </div>
 

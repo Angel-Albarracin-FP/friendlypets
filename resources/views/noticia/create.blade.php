@@ -13,8 +13,7 @@
 @endif
 
 <div>
-  <form class="form-horizontal" method="POST" action="{{ action('NoticiaController@update', ['id' => $noticia->id] ) }}" enctype="multipart/form-data">
-    @method('PATCH')
+  <form class="form-horizontal" method="POST" action="{{ action('NoticiaController@store') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group ">
       <label class="col-md-4 control-label">Autor: {{ Auth::user()->name }}</label>  
@@ -30,13 +29,13 @@
     <div class="form-group ">
       <label class="col-md-4 control-label">Titulo</label>  
       <div class="col-md-4">
-        <input name="titulo" class="form-control input-md" type="text" value="{{ $noticia->titulo }}">
+        <input name="titulo" class="form-control input-md" type="text" placeholder="Ingrese el titulo">
       </div>
     </div>
     <!-- Descripcion de la noticia -->
     <div class="form-group"> 
       <div class="col-md-4">
-        <textarea color="black" style="color:black;" name="descripcion" cols="40" rows="5">{{ $noticia->descripcion }}</textarea>
+        <textarea color="black" style="color:black;" name="descripcion" cols="40" rows="5" placeholder="Cuerpo de la noticia"></textarea>
       </div>
     </div>
     <!-- Button -->
