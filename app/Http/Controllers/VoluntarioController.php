@@ -3,6 +3,7 @@
 namespace FriendlyPets\Http\Controllers;
 
 use Illuminate\Http\Request;
+use FriendlyPets\Voluntario;
 
 class VoluntarioController extends Controller
 {
@@ -23,7 +24,8 @@ class VoluntarioController extends Controller
      */
     public function index()
     {
-        //
+        $voluntarios = Voluntario::all();
+        return view('voluntario.index', compact('voluntarios'));
     }
 
     /**
@@ -34,7 +36,8 @@ class VoluntarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $voluntario = Voluntario::find($id);
+        return view('voluntario.show', compact('voluntario'));
     }
 
 }
