@@ -11,6 +11,21 @@
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/avisos') }}">Avisos</a>
         </li>
+        @can('voluntario.index')
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/voluntarios') }}">Voluntarios</a>
+        </li>
+        @endcan
+        @can('noticia.create')
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/noticia/crear') }}">Crear Noticia</a>
+        </li>
+        @endcan
+        @can('user.index')
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/usuarios') }}">Panel Usuarios</a>
+        </li>
+        @endcan
       </ul>
       <ul class="navbar-nav ml-auto">
       <!-- Authentication Links -->

@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
         	ProvinciasSeeder::class,
         	PartidosSeeder::class,
-        	LocalidadesSeeder::class,
+            LocalidadesSeeder::class,
+            PermisosSeeder::class,
+            RolesSeeder::class,
             PreguntasFrecuentesSeeder::class,
             ImagenesSeeder::class,
             TiposAnimalSeeder::class,
@@ -23,8 +25,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             NoticiasSeeder::class,
             AvisosSeeder::class,
-            PermisosSeeder::class,
-            RolesSeeder::class,
+            VoluntariosSeeder::class,
         ]);
     }
 }

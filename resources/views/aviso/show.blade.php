@@ -27,7 +27,7 @@
 		      <button type="button" onclick="location.href='/avisos/{{ $aviso->id }}/editar'" class="btn btn-info" style="border-color:#ddd">Editar</button>
 		    </div>
 		    <div class="col-md-2 pt-3">
-		    	{!! Form::open(['route' => ['aviso-delete', $aviso->id], 'method' => 'DELETE' ]) !!}
+		    	{!! Form::open(['route' => ['aviso.delete', $aviso->id], 'method' => 'DELETE' ]) !!}
 		      <button type="submit" class="btn btn-info" style="border-color:#ddd">Eliminar</button>
 		      {!! Form::close() !!}
 		    </div>

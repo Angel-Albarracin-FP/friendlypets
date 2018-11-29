@@ -48,6 +48,11 @@ class PermisosSeeder extends Seeder
         'name' => 'Listado de usuarios',
         'slug' => 'user.index',
         'description' => 'Permite la asignacion de roles a los diferentes usuarios',
+      ],
+      [
+        'name' => 'Edicion de roles de usuario',
+        'slug' => 'role.edit',
+        'description' => 'Permite editar los roles que tiene un usuario',
       ]
     ]);
   }

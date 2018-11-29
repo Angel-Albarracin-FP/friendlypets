@@ -62,7 +62,9 @@
           </div>
         </div>
         <div class="col-md-2">
+          @can('aviso.create')
           <button type="button" onclick="location.href='/avisos/crear'" class="btn btn-primary btn-block">Crear</button>
+          @endcan
         </div>
       </div>
     </div>
